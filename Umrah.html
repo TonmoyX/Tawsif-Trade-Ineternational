@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umrah Packages - Tawsif Trade International</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo h1 {
+            color: #006400;
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #006400;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00a000;
+        }
+
+        .hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                        url('https://seekersguidance.org/wp-content/uploads/2023/11/Hajj-Makka-e1700925190129.jpg') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 1rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .packages-section {
+            padding: 4rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            color: #006400;
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .package-card {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .package-header {
+            background: #006400;
+            color: #fff;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .package-name {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        .package-duration {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .package-features {
+            padding: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list li {
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: #006400;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .package-button {
+            display: block;
+            background: #006400;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .package-button:hover {
+            background: #008000;
+        }
+
+        .services-section {
+            background: #f9f9f9;
+            padding: 4rem 1rem;
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: #006400;
+            margin-bottom: 1rem;
+        }
+
+        .process-section {
+            padding: 4rem 1rem;
+        }
+
+        .process-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .step-number {
+            background: #006400;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        .faq-section {
+            background: #f9f9f9;
+            padding: 4rem 1rem;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #fff;
+            margin-bottom: 1rem;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        footer {
+            background: #006400;
+            color: #fff;
+            padding: 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .footer-info, .footer-logos {
+            flex: 1;
+        }
+
+        .footer-info h3, .footer-logos h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-logos p {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-logos img {
+            height: 20px;
+            width: auto;
+        }
+
+        /* Tablet Styles */
+        @media (max-width: 992px) {
+            .packages-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 0.5rem;
+            }
+
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+                width: 100%;
+                padding: 0.5rem 0;
+            }
+
+            .hero {
+                height: 50vh;
+                padding: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+
+            .services-grid, .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-main {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-info, .footer-logos {
+                width: 100%;
+                text-align: center;
+            }
+
+            .footer-logos p {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+
+            .package-card {
+                margin: 0 0.5rem 1.5rem;
+            }
+
+            .faq-container {
+                padding: 0 1rem;
+            }
+
+            .faq-question {
+                padding: 1rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Small Mobile Styles */
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .logo img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .package-header {
+                padding: 1rem;
+            }
+
+            .package-name {
+                font-size: 1.5rem;
+            }
+
+            .package-price {
+                font-size: 2rem;
+            }
+
+            .package-features {
+                padding: 1.5rem;
+            }
+
+            .service-card, .step-card {
+                padding: 1.5rem;
+            }
+
+            .process-steps {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.jpg" alt="Tawsif Trade International Logo">
+                <h1>Tawsif Trade International</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="Hajj.html">Hajj Packages</a></li>
+                    <li><a href="#packages">Umrah Packages</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#con">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Umrah Packages 2025</h2>
+            <p>Embark on a spiritual journey with our carefully crafted Umrah packages</p>
+        </div>
+    </section>
+
+    <section class="packages-section" id="packages">
+        <h2 class="section-title">Our Umrah Packages</h2>
+        <div class="packages-grid">
+            <div class="package-card">
+                <div class="package-header">
+                    <h3 class="package-name">Economy Package</h3>
+                    <div class="package-price">BDT: 1,23,000</div>
+                    <div class="package-duration">15 Days</div>
+                </div>
+                <div class="package-features">
+                    <ul class="feature-list">
+                        <li>3-star Hotel Accommodation</li>
+                        <li>Return Flight Tickets</li>
+                        <li>Visa Processing</li>
+                        <li>Airport Transfers</li>
+                        <li>Daily Transportation</li>
+                        <li>Basic Meals</li>
+                        <li>Group Ziyarat</li>
+                        <li>Religious Guide</li>
+                    </ul>
+                    <a href="#contact" class="package-button">Book Now</a>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-header">
+                    <h3 class="package-name">Standard Package</h3>
+                    <div class="package-price">BDT: 1,35,000</div>
+                    <div class="package-duration">15 Days</div>
+                </div>
+                <div class="package-features">
+                    <ul class="feature-list">
+                        <li>4-star Hotel Accommodation</li>
+                        <li>Return Flight Tickets</li>
+                        <li>Express Visa Processing</li>
+                        <li>Private Airport Transfers</li>
+                        <li>Daily Transportation</li>
+                        <li>Full Board Meals</li>
+                        <li>Guided Ziyarat</li>
+                        <li>24/7 Support Staff</li>
+                        <li>Special Family Rooms</li>
+                    </ul>
+                    <a href="#contact" class="package-button">Book Now</a>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <div class="package-header">
+                    <h3 class="package-name">Premium Package</h3>
+                    <div class="package-price">BDT: 2,05,000</div>
+                    <div class="package-duration">15 Days</div>
+                </div>
+                <div class="package-features">
+                    <ul class="feature-list">
+                        <li>5-star Luxury Hotel</li>
+                        <li>Business Class Flights</li>
+                        <li>VIP Visa Processing</li>
+                        <li>Luxury Vehicle Transfers</li>
+                        <li>Private Transportation</li>
+                        <li>Premium Dining</li>
+                        <li>Private Ziyarat Guide</li>
+                        <li>Personal Assistant</li>
+                        <li>Luxury Suite Rooms</li>
+                        <li>Priority Services</li>
+                    </ul>
+                    <a href="#contact" class="package-button">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <div class="services-container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏨</div>
+                    <h3>Premium Accommodation</h3>
+                    <p>Stay in carefully selected hotels near Haram in both Makkah and Madinah.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">✈️</div>
+                    <h3>Flight Booking</h3>
+                    <p>Convenient flight arrangements with reputable airlines.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Visa Processing</h3>
+                    <p>Hassle-free visa processing with quick turnaround time.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚌</div>
+                    <h3>Transportation</h3>
+                    <p>Comfortable and reliable transportation throughout your journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="process-container">
+            <h2 class="section-title">Booking Process</h2>
+            <div class="process-steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Choose Package</h3>
+                    <p>Select the Umrah package that best suits your needs and budget.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Submit Documents</h3>
+                    <p>Provide necessary documents for visa processing.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Make Payment</h3>
+                    <p>Secure your booking with an initial deposit.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h3>Ready to Travel</h3>
+                    <p>Receive your travel documents and prepare for the journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="faq-container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">
+                    What documents are required for Umrah?
+                </div>
+                <div class="faq-answer">
+                    Required documents include a valid passport, passport-size photos, vaccination records, and completed application forms.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    How long is the typical Umrah trip?
+                </div>
+                <div class="faq-answer">
+                    Our standard packages are for 15 days, but we can customize the duration based on your preferences.
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">
+                    Are meals included in the package?
+                </div>
+                <div class="faq-answer">
+                    Yes, meals are included as per the package specifications. Premium packages include full-board premium dining.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="con">
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-info">
+                    <h3>Contact Information</h3>
+                    <p>📧 Email: ltdtawsif@gmail.com</p>
+                    <p>📞 Phone: 01712161763</p>
+                    <p>🔒 Hajj License: 0351</p>
+                    <p>📍 Address: Azad Center, Lift - 18, 55 Purana Paltan, Dhaka - 100</p>
+                </div>
+                <div class="footer-logos">
+                    <h3>Membership With</h3>
+                    <p>🏢 ATAB Member <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqbSUkGkbjzmra80SVAcjl-EfkcDmslIUnlQ&s" alt="ATAB Logo"></p>
+                    <p>✈️ IATA Certified <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Y_-GvOqEDf4mzlbPaMZIKe2y3YA5xDxayg&s" alt="IATA Logo"></p>
+                </div>
+            </div>
+            <div style="text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 1rem;">
+                <p>&copy; 2025 Tawsif Trade International. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'none' ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

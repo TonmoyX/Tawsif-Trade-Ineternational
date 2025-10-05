@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tawsif Trade International</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .logo h1 {
+            color: #006400;
+            font-size: 1.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #006400;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00a000;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                        url('https://thesaudiboom.com/wp-content/uploads/2025/04/1-Saudi-Arabia-Launches-Hajj-Packages-for-Domestic-Pilgrims-via-Nusuk-App.png') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 1rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-btn {
+            background: #006400;
+            color: #fff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: #00a000;
+        }
+
+        .packages {
+            padding: 5rem 1rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #006400;
+            margin-bottom: 3rem;
+        }
+
+        .package-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .package-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .package-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .package-content {
+            padding: 1.5rem;
+        }
+
+        .package-title {
+            color: #006400;
+            margin-bottom: 1rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .package-features li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .package-features li::before {
+            content: "✓";
+            color: #006400;
+            position: absolute;
+            left: 0;
+        }
+
+        .about {
+            background: #f9f9f9;
+            padding: 5rem 1rem;
+        }
+
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact {
+            padding: 5rem 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            color: #006400;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        footer {
+            background: #006400;
+            color: #fff;
+            padding: 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .footer-main {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .footer-info {
+            text-align: left;
+        }
+
+        .footer-info p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-logos {
+            text-align: left;
+        }
+
+        .footer-logos p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-logos img {
+            height: 20px;
+            width: auto;
+            vertical-align: middle;
+        }
+
+        /* Tablet Styles */
+        @media (max-width: 992px) {
+            .package-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 0.5rem;
+            }
+
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+                width: 100%;
+                padding: 0.5rem 0;
+            }
+
+            .hero {
+                height: 80vh;
+                padding: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .package-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-main {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .footer-info, .footer-logos {
+                text-align: center;
+                width: 100%;
+            }
+
+            .footer-logos p {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+            }
+
+            .packages {
+                padding: 3rem 1rem;
+            }
+
+            .about, .contact {
+                padding: 3rem 1rem;
+            }
+        }
+
+        /* Small Mobile Styles */
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .logo img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .package-card {
+                margin: 0 0.5rem;
+            }
+
+            .cta-btn {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.jpg" alt="Tawsif Trade International Logo">
+                <h1>Tawsif Trade International</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#index.html">Home</a></li>
+                    <li><a href="Hajj.html">Hajj Packages</a></li>
+                    <li><a href="Umrah.html">Umrah Packages</a></li>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Your Sacred Journey Begins Here</h2>
+            <p>Experience a blessed and comfortable pilgrimage with our comprehensive Hajj and Umrah services. We take care of everything so you can focus on your spiritual journey.</p>
+            <button class="cta-btn" onclick="scrollToPackages()">View Our Packages</button>
+        </div>
+    </section>
+
+    <section class="packages" id="packages">
+        <h2 class="section-title">Our Packages</h2>
+        <div class="package-grid">
+            <div class="package-card">
+                <img src="https://t3.ftcdn.net/jpg/09/66/19/82/360_F_966198214_AuNPqGNqIz25p4My0NYY9dvEA6d0ULRV.jpg" alt="Hajj Package" class="package-img">
+                <div class="package-content">
+                    <h3 class="package-title">Hajj Package</h3>
+                    <ul class="package-features">
+                        <li>Complete Visa Processing</li>
+                        <li>5-Star Hotel Accommodation</li>
+                        <li>Return Flights</li>
+                        <li>Transportation in Saudi Arabia</li>
+                        <li>Experienced Guide Services</li>
+                        <li>24/7 Support</li>
+                    </ul>
+                    <button class="cta-btn" onclick="inquirePackage('Hajj')">Inquire Now</button>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <img src="https://www.islamic-relief.org.uk/wp-content/uploads/2022/11/guide-to-hajj-hero.jpg" alt="Umrah Package" class="package-img">
+                <div class="package-content">
+                    <h3 class="package-title">Umrah Package</h3>
+                    <ul class="package-features">
+                        <li>Fast Visa Processing</li>
+                        <li>Luxury Hotel Stay</li>
+                        <li>Flight Arrangements</li>
+                        <li>Local Transportation</li>
+                        <li>Religious Guidance</li>
+                        <li>Support Throughout</li>
+                    </ul>
+                    <button class="cta-btn" onclick="inquirePackage('Umrah')">Inquire Now</button>
+                </div>
+            </div>
+
+            <div class="package-card">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2c/29/3f/ae/caption.jpg?w=1200&h=-1&s=1" alt="Premium Package" class="package-img">
+                <div class="package-content">
+                    <h3 class="package-title">Premium Package</h3>
+                    <ul class="package-features">
+                        <li>VIP Visa Processing</li>
+                        <li>Luxury Suite Accommodation</li>
+                        <li>Business Class Flights</li>
+                        <li>Private Transportation</li>
+                        <li>Personal Guide</li>
+                        <li>Dedicated Support Team</li>
+                    </ul>
+                    <button class="cta-btn" onclick="inquirePackage('Premium')">Inquire Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-content">
+            <h2 class="section-title">About Us</h2>
+            <p>At Tawsif Trade International, we understand the significance of your spiritual journey. With over 15 years of experience in facilitating Hajj and Umrah pilgrimages, we are committed to providing exceptional service and support throughout your sacred journey. Our team of experienced professionals ensures that every aspect of your pilgrimage is handled with utmost care and attention to detail.</p>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <h2 class="section-title">Contact Us</h2>
+        <form class="contact-form" id="inquiryForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            <div class="form-group">
+                <label for="package">Interested Package</label>
+                <input type="text" id="package" name="package" readonly>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="cta-btn">Send Inquiry</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-main">
+                <div class="footer-info">
+                    <h1>Contact Information</h1>
+                    <p>📧 Email: ltdtawsif@gmail.com</p>
+                    <p>📞 Phone: 01712161763</p>
+                    <p>🔒 Hajj License: 0351</p>
+                    <p>📍 Address: Azad Center, Lift - 18, 55 Purana Paltan, Dhaka - 100</p>
+                </div>
+                <div class="footer-logos">
+                    <h1>Membership With</h1>
+                    <p>🏢 ATAB Member <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqbSUkGkbjzmra80SVAcjl-EfkcDmslIUnlQ&s" alt="ATAB Logo"></p>
+                    <p>✈️ IATA Certified <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_Y_-GvOqEDf4mzlbPaMZIKe2y3YA5xDxayg&s" alt="IATA Logo"></p>
+                </div>
+            </div>
+            <div style="text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 1rem;">
+                <p>&copy; 2025 Tawsif Trade International. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToPackages() {
+            document.getElementById('packages').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function inquirePackage(packageName) {
+            document.getElementById('package').value = packageName + ' Package';
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const packageType = document.getElementById('package').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && phone && packageType && message) {
+                alert(`Thank you for your inquiry, ${name}! We will contact you shortly regarding the ${packageType.toLowerCase()}.`);
+                this.reset();
+            } else {
+                alert('Please fill in all fields.');
+            }
+        });
+    </script>
+</body>
+</html>
